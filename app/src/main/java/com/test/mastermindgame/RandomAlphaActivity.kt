@@ -31,7 +31,7 @@ class RandomAlphaActivity : AppCompatActivity() , ValidateCallback{
         strRandomString = utilIntance.getRandomString()
         addingTextChangeListener()
         onSubmit()
-        println("random string is =>" +strRandomString)
+        println(resources.getString(R.string.console_random_string) +strRandomString)
     }
 
     private fun addingTextChangeListener() {

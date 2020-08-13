@@ -28,44 +28,48 @@
 
             <EditText
                 android:id="@+id/edt0"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/editTextSize"
+                android:layout_height="@dimen/editTextSize"
                 android:background="@drawable/editext_box"
                 android:gravity="center"
                 android:inputType="text"
+                android:digits="@string/alpha_characters"
                 android:maxLength="1"
                 android:text="@={RandomAlphaViewModel.edtZero}" />
 
             <EditText
                 android:id="@+id/edt1"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/editTextSize"
+                android:layout_height="@dimen/editTextSize"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/editext_box"
                 android:gravity="center"
                 android:inputType="text"
+                android:digits="@string/alpha_characters"
                 android:maxLength="1"
                 android:text="@={RandomAlphaViewModel.edtOne}" />
 
             <EditText
                 android:id="@+id/edt2"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/editTextSize"
+                android:layout_height="@dimen/editTextSize"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/editext_box"
                 android:gravity="center"
                 android:inputType="text"
+                android:digits="@string/alpha_characters"
                 android:maxLength="1"
                 android:text="@={RandomAlphaViewModel.edtTwo}" />
 
             <EditText
                 android:id="@+id/edt3"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/editTextSize"
+                android:layout_height="@dimen/editTextSize"
                 android:layout_marginLeft="5dp"
                 android:background="@drawable/editext_box"
                 android:gravity="center"
                 android:inputType="text"
+                android:digits="@string/alpha_characters"
                 android:maxLength="1"
                 android:text="@={RandomAlphaViewModel.edtThree}" />
 

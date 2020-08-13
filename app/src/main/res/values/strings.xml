@@ -4,4 +4,5 @@
     <string name="alpha_characters">qwertyuiopasdfghjklzxcvbnm</string>
     <string name="isEmptyMsg">Please fill all box</string>
     <string name="enter_random_alpha">Enter random alphabets</string>
+    <string name="console_random_string">Generated random string is : </string>
 </resources>
