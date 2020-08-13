@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.test.movies.utils.Util
 import kotlinx.android.synthetic.main.activity_random_alpha.*
@@ -26,7 +27,7 @@ class RandomAlphaActivity : AppCompatActivity() , ValidateCallback{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_random_alpha)
         supportActionBar?.hide()
-        randomAlphaViewModel = ViewModelProviders.of(this).get(RandomAlphaViewModel::class.java)
+        randomAlphaViewModel = ViewModelProvider(this).get(RandomAlphaViewModel::class.java)
         utilIntance = Util()
         strRandomString = utilIntance.getRandomString()
         addingTextChangeListener()
