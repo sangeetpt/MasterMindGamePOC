@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="android.view.View"/>
         <variable
             name="RandomAlphaViewModel"
             type="com.test.mastermindgame.RandomAlphaViewModel" />
@@ -26,7 +27,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
+            <com.test.mastermindgame.EditTextValidate
                 android:id="@+id/edt0"
                 android:layout_width="@dimen/editTextSize"
                 android:layout_height="@dimen/editTextSize"
@@ -35,9 +36,11 @@
                 android:inputType="text"
                 android:digits="@string/alpha_characters"
                 android:maxLength="1"
-                android:text="@={RandomAlphaViewModel.edtZero}" />
+                android:text="@={RandomAlphaViewModel.edtZero}"
+                app:checkEditText="@{0}"
+                />
 
-            <EditText
+            <com.test.mastermindgame.EditTextValidate
                 android:id="@+id/edt1"
                 android:layout_width="@dimen/editTextSize"
                 android:layout_height="@dimen/editTextSize"
@@ -47,9 +50,10 @@
                 android:inputType="text"
                 android:digits="@string/alpha_characters"
                 android:maxLength="1"
-                android:text="@={RandomAlphaViewModel.edtOne}" />
+                android:text="@={RandomAlphaViewModel.edtOne}"
+                app:checkEditText="@{1}"/>
 
-            <EditText
+            <com.test.mastermindgame.EditTextValidate
                 android:id="@+id/edt2"
                 android:layout_width="@dimen/editTextSize"
                 android:layout_height="@dimen/editTextSize"
@@ -59,9 +63,10 @@
                 android:inputType="text"
                 android:digits="@string/alpha_characters"
                 android:maxLength="1"
-                android:text="@={RandomAlphaViewModel.edtTwo}" />
+                android:text="@={RandomAlphaViewModel.edtTwo}"
+                app:checkEditText="@{2}"/>
 
-            <EditText
+            <com.test.mastermindgame.EditTextValidate
                 android:id="@+id/edt3"
                 android:layout_width="@dimen/editTextSize"
                 android:layout_height="@dimen/editTextSize"
@@ -71,7 +76,8 @@
                 android:inputType="text"
                 android:digits="@string/alpha_characters"
                 android:maxLength="1"
-                android:text="@={RandomAlphaViewModel.edtThree}" />
+                android:text="@={RandomAlphaViewModel.edtThree}"
+                app:checkEditText="@{3}"/>
 
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/cbxSubmit"

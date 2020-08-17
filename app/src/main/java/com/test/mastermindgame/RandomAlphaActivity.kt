@@ -30,12 +30,13 @@ class RandomAlphaActivity : AppCompatActivity() , ValidateCallback{
         randomAlphaViewModel = ViewModelProvider(this).get(RandomAlphaViewModel::class.java)
         utilIntance = Util()
         strRandomString = utilIntance.getRandomString()
-        addingTextChangeListener()
+        addingTextFocusChange()
         onSubmit()
         println(resources.getString(R.string.console_random_string) +strRandomString)
+        textResult.setText(resources.getString(R.string.random_alpha) + "  "+ strRandomString);
     }
 
-    private fun addingTextChangeListener() {
+    private fun addingTextFocusChange() {
 
         edt0.addTextChangedListener {
             if ((edt0).text.toString().length == 1) {
@@ -78,46 +79,16 @@ class RandomAlphaActivity : AppCompatActivity() , ValidateCallback{
         randomAlphaViewModel.setViewListener(this@RandomAlphaActivity)
         if(randomAlphaViewModel.validateEditText(edt0.text.toString(),edt1.text.toString(),
                                                 edt2.text.toString(),edt3.text.toString())){
-            compareResult()
+            edt0.checkEditText(0)
+            edt1.checkEditText(1)
+            edt2.checkEditText(2)
+            edt3.checkEditText(3)
+            showReset()
         }
-    }
-
-    private fun compareResult() {
-        for (pos in 0..3) {
-            var edtString: String = ""
-            var edt = findViewById<EditText>(R.id.edt0)
-            when (pos) {
-                0 -> {
-                    edtString = edt0.text.toString()
-                    edt = findViewById(R.id.edt0)
-                }
-                1 -> {
-                    edtString = edt1.text.toString()
-                    edt = findViewById(R.id.edt1)
-                }
-                2 -> {
-                    edtString = edt2.text.toString()
-                    edt = findViewById(R.id.edt2)
-                }
-                3 -> {
-                    edtString = edt3.text.toString()
-                    edt = findViewById(R.id.edt3)
-                }
-            }
-            var charAtPos : String = strRandomString.get(pos).toString()
-            if (edtString == charAtPos) {
-                edt.setBackgroundResource(R.drawable.editext_box_green)
-            } else if ((strRandomString.contains(edt.text.toString()))) {
-                edt.setBackgroundResource(R.drawable.editext_box_orange)
-            } else {
-                edt.setBackgroundResource(R.drawable.editext_box_red)
-            }
-        }
-        textResult.setText(resources.getString(R.string.random_alpha) + strRandomString);
-        showReset()
     }
 
     private fun showReset(){
+
         reset.visibility = View.VISIBLE
         reset.setOnClickListener {
             finish()
