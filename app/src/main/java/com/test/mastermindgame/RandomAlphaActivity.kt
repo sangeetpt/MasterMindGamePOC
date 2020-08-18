@@ -16,20 +16,24 @@ import com.test.movies.utils.Util
 import kotlinx.android.synthetic.main.activity_random_alpha.*
 import java.util.*
 
-var strRandomString : String = ""
-private lateinit var utilIntance: Util
+
+private lateinit var utilInstance: Util
 
 
 lateinit var randomAlphaViewModel: RandomAlphaViewModel
 
 class RandomAlphaActivity : AppCompatActivity() , ValidateCallback{
+
+    companion object{
+        var strRandomString : String = ""
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_random_alpha)
         supportActionBar?.hide()
         randomAlphaViewModel = ViewModelProvider(this).get(RandomAlphaViewModel::class.java)
-        utilIntance = Util()
-        strRandomString = utilIntance.getRandomString()
+        utilInstance = Util()
+        strRandomString = utilInstance.getRandomString()
         addingTextFocusChange()
         onSubmit()
         println(resources.getString(R.string.console_random_string) +strRandomString)
@@ -80,10 +84,10 @@ class RandomAlphaActivity : AppCompatActivity() , ValidateCallback{
     }
 
     private fun testResult(){
-        edt0.checkEditText(randomAlphaViewModel.updateResult(0,edt0.text.toString()))
-        edt1.checkEditText(randomAlphaViewModel.updateResult(1,edt1.text.toString()))
-        edt2.checkEditText(randomAlphaViewModel.updateResult(2,edt2.text.toString()))
-        edt3.checkEditText(randomAlphaViewModel.updateResult(3,edt3.text.toString()))
+        edt0.checkEditText(randomAlphaViewModel.updateResult(0,edt0.text.toString(), strRandomString))
+        edt1.checkEditText(randomAlphaViewModel.updateResult(1,edt1.text.toString(), strRandomString))
+        edt2.checkEditText(randomAlphaViewModel.updateResult(2,edt2.text.toString(), strRandomString))
+        edt3.checkEditText(randomAlphaViewModel.updateResult(3,edt3.text.toString(), strRandomString))
         showReset()
     }
 

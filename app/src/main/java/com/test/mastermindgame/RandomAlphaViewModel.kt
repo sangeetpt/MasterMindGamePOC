@@ -10,7 +10,7 @@ import kotlin.coroutines.coroutineContext
 class RandomAlphaViewModel(application: Application) : AndroidViewModel(application) {
 
     private var mListener: ValidateCallback? = null
-    private lateinit var utilIntance: Util
+    private var utilIntance: Util
     var edtZero: ObservableField<String>? = null
     var edtOne: ObservableField<String>? = null
     var edtTwo: ObservableField<String>? = null
@@ -29,8 +29,8 @@ class RandomAlphaViewModel(application: Application) : AndroidViewModel(applicat
         this.mListener = listener
     }
 
-    fun updateResult(pos:Int,string: String): Int {
-        return utilIntance.compareResult(pos,string)
+    fun updateResult(pos:Int,string: String,randomText:String): Int {
+        return utilIntance.compareResult(pos,string,randomText)
     }
 
 
