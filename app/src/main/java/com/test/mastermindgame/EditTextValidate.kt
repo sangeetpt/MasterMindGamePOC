@@ -11,31 +11,13 @@ class EditTextValidate @JvmOverloads constructor(context: Context, attrs: Attrib
     private val matchedText = ContextCompat.getDrawable(context, R.drawable.editext_box_green)
     private val unmatchedText = ContextCompat.getDrawable(context, R.drawable.editext_box_orange)
     private val wrongText = ContextCompat.getDrawable(context, R.drawable.editext_box_red)
-    lateinit var userText : String
 
     fun checkEditText(i: Int) {
         when(i){
-            0->  { userText = edt0.text.toString()}
-            1->  { userText = edt1.text.toString()}
-            2->  { userText = edt2.text.toString()}
-            3->  { userText = edt3.text.toString()}
+            0->  { background = matchedText}
+            1->  { background = unmatchedText}
+            2->  { background=wrongText}
         }
-        enableResult(i)
-    }
-
-    private fun enableResult(i: Int) {
-        var charAtPos : String = strRandomString.get(i).toString()
-            if (userText == charAtPos) {
-               background = matchedText
-            } else if ((strRandomString.contains(userText))) {
-                background = unmatchedText
-            }else{
-                background=wrongText
-            }
-    }
-
-    private fun disableResult() {
-        clearOnTextChangedListener()
     }
 
 }

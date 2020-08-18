@@ -21,10 +21,16 @@ class RandomAlphaViewModel(application: Application) : AndroidViewModel(applicat
         edtOne = ObservableField("")
         edtTwo = ObservableField("")
         edtThree = ObservableField("")
+
+        utilIntance = Util()
     }
 
     fun setViewListener(listener: ValidateCallback) {
         this.mListener = listener
+    }
+
+    fun updateResult(pos:Int,string: String): Int {
+        return utilIntance.compareResult(pos,string)
     }
 
 

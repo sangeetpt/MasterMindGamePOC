@@ -68,23 +68,23 @@ class RandomAlphaActivity : AppCompatActivity() , ValidateCallback{
             if (isChecked) {
                 validateEditext()
             }
-
         }
-        if (cbxSubmit.isChecked)
-            getUserEnteredText()
     }
 
     private fun validateEditext() {
-
         randomAlphaViewModel.setViewListener(this@RandomAlphaActivity)
         if(randomAlphaViewModel.validateEditText(edt0.text.toString(),edt1.text.toString(),
                                                 edt2.text.toString(),edt3.text.toString())){
-            edt0.checkEditText(0)
-            edt1.checkEditText(1)
-            edt2.checkEditText(2)
-            edt3.checkEditText(3)
-            showReset()
+            testResult()
         }
+    }
+
+    private fun testResult(){
+        edt0.checkEditText(randomAlphaViewModel.updateResult(0,edt0.text.toString()))
+        edt1.checkEditText(randomAlphaViewModel.updateResult(1,edt1.text.toString()))
+        edt2.checkEditText(randomAlphaViewModel.updateResult(2,edt2.text.toString()))
+        edt3.checkEditText(randomAlphaViewModel.updateResult(3,edt3.text.toString()))
+        showReset()
     }
 
     private fun showReset(){
@@ -96,12 +96,8 @@ class RandomAlphaActivity : AppCompatActivity() , ValidateCallback{
         }
     }
 
-    private fun getUserEnteredText(): String {
-        val randomAlphaViewModel: RandomAlphaViewModel by viewModels()
-        return randomAlphaViewModel.edtZero.toString() + randomAlphaViewModel.edtZero.toString()+ randomAlphaViewModel.edtZero.toString() + randomAlphaViewModel.edtZero.toString()
-    }
-
     override fun onSuccess(s: String?) {
+        testResult()
     }
 
     override fun onError(s: String?) {
